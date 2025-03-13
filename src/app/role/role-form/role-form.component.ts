@@ -53,7 +53,7 @@ export class RoleFormComponent {
         name: this.roleForm.value.name!,
         permissions: this.roleForm.value.permissions || [],
       });
-      this.roleForm.reset({ permissions: [] }); // Clear form while preserving control types
+      this.roleForm.reset({ permissions: [], name: '' }); // Clear form while preserving control types
       bootstrap.Modal.getInstance(this.roleModal.nativeElement)?.hide();
     }
   }

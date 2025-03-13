@@ -1,0 +1,18 @@
+{
+  "roles": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "permissions": ["manage_users", "manage_settings"]
+    },
+    { "id": 2, "name": "Editor", "permissions": ["edit_content"] },
+    { "id": 3, "name": "Viewer", "permissions": ["view_content"] }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Rax",
+      "role": "Admin"
+    }
+  ]
+}
