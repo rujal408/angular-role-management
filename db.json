@@ -1,16 +1,74 @@
 {
   "roles": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Admin",
-      "permissions": ["manage_users", "manage_settings"]
+      "permissions": [
+        "manage_users",
+        "manage_settings"
+      ]
     },
-    { "id": 2, "name": "Editor", "permissions": ["edit_content"] },
-    { "id": 3, "name": "Viewer", "permissions": ["view_content"] }
+    {
+      "id": "2",
+      "name": "Editor",
+      "permissions": [
+        "edit_content"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Viewer",
+      "permissions": [
+        "view_content"
+      ]
+    },
+    {
+      "id": 0.5151716289672448,
+      "name": "Ava Skinner",
+      "permissions": [
+        "view_content",
+        "manage_users",
+        "edit_content",
+        "view_content",
+        "delete_content"
+      ]
+    },
+    {
+      "id": 0.7141207085924854,
+      "name": "Kelly Lara",
+      "permissions": [
+        "manage_users",
+        "manage_settings"
+      ]
+    },
+    {
+      "id": 0.0014093663422047875,
+      "name": "Ira Mcgee",
+      "permissions": [
+        "manage_users",
+        "edit_content",
+        "delete_content"
+      ]
+    },
+    {
+      "id": 0.5110926364240851,
+      "name": "Carl Gillespie",
+      "permissions": [
+        "manage_settings"
+      ]
+    },
+    {
+      "id": 0.07038596429318789,
+      "name": "Craig Hansen",
+      "permissions": [
+        "manage_users",
+        "manage_settings"
+      ]
+    }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Rax",
       "role": "Admin"
     }

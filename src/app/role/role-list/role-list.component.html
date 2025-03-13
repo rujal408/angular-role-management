@@ -43,7 +43,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let role of roles">
+      <tr *ngFor="let role of roles()">
         <th scope="row">{{ role.id }}</th>
         <td>{{ role.name }}</td>
         <td>

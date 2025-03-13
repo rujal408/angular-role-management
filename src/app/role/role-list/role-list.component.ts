@@ -5,6 +5,7 @@ import {
   EventEmitter,
   inject,
   Output,
+  signal,
   Signal,
 } from '@angular/core';
 import { RoleService } from '../../services/role.service';
@@ -20,12 +21,16 @@ export class RoleListComponent {
   @Output() edit = new EventEmitter<number>();
   @Output() delete = new EventEmitter<number>();
 
-  private readonly rolesServie = inject(RoleService);
+  private readonly rolesService = inject(RoleService);
 
-  public roles: Signal<any[]>;
+  public roles: Signal<any[]> = signal([]);
 
   constructor() {
-    const resources = this.rolesServie.getRoles;
+    this.getData();
+  }
+
+  getData() {
+    const resources = this.rolesService.getRoles;
     this.roles = computed(() => resources.value() || []);
   }
 
@@ -37,17 +42,13 @@ export class RoleListComponent {
     this.delete.emit(id);
   }
 
-  addRole(newRoleData: { name: string; permissions: string[] }) {
-    // Generate a new ID (max existing ID + 1)
-    // const newId =
-    //   this.roles.length > 0
-    //     ? Math.max(...this.roles.map((role) => role.id)) + 1
-    //     : 1;
-    // // Add the new role to the array
-    // this.roles.push({
-    //   id: newId,
-    //   name: newRoleData.name,
-    //   permissions: newRoleData.permissions,
-    // });
+  async addRole(newRoleData: { name: string; permissions: string[] }) {
+    const newId = Math.random();
+
+    await this.rolesService
+      .postRole({ ...newRoleData, id: newId })
+      .then((res) => {
+        console.log({ res });
+      });
   }
 }
