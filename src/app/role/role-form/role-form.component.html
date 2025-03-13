@@ -1,3 +1,40 @@
 <div class="form-container">
-    
-  </div>
+  <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="roleName">Role Name</label>
+      <input
+        type="text"
+        id="roleName"
+        formControlName="name"
+        class="form-control"
+        placeholder="Enter role name"
+        required
+      />
+    </div>
+
+    <div class="form-group permissions-group">
+      <label>Permissions</label>
+      <div class="permissions-checkboxes">
+        <!-- Available permissions - customize as needed -->
+        <div
+          *ngFor="let permission of availablePermissions"
+          class="permission-item"
+        >
+          <label>
+            <input
+              type="checkbox"
+              [value]="permission"
+              #checkboxEl
+              (change)="togglePermission(permission, checkboxEl.checked)"
+            />
+            {{ permission }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+      Submit
+    </button>
+  </form>
+</div>

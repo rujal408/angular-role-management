@@ -1,3 +1,60 @@
 <div class="role-container">
-  Role List
+  <div>
+    <button
+      type="button"
+      class="btn btn-primary create-button"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Create Role
+    </button>
+    <div
+      class="modal fade"
+      id="exampleModal"
+      #roleModal
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <app-role-form (roleSubmitted)="addRole($event)" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of roles">
+        <th scope="row">{{ role.id }}</th>
+        <td>{{ role.name }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="onEdit(role.id)">
+            Edit
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(role.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
