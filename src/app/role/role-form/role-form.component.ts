@@ -7,7 +7,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-declare var bootstrap: any; // Import Bootstrap type declarations
 
 @Component({
   selector: 'app-role-form',
@@ -54,7 +53,6 @@ export class RoleFormComponent {
         permissions: this.roleForm.value.permissions || [],
       });
       this.roleForm.reset({ permissions: [], name: '' }); // Clear form while preserving control types
-      bootstrap.Modal.getInstance(this.roleModal.nativeElement)?.hide();
     }
   }
 }

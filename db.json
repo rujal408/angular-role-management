@@ -23,46 +23,59 @@
       ]
     },
     {
-      "id": 0.5151716289672448,
-      "name": "Ava Skinner",
+      "id": "0.3954",
+      "name": "Leigh Herrera",
       "permissions": [
-        "view_content",
-        "manage_users",
-        "edit_content",
         "view_content",
         "delete_content"
       ]
     },
     {
-      "id": 0.7141207085924854,
-      "name": "Kelly Lara",
+      "id": "2ae0",
+      "name": "Jonah Booker",
       "permissions": [
-        "manage_users",
-        "manage_settings"
+        "view_content"
       ]
     },
     {
-      "id": 0.0014093663422047875,
-      "name": "Ira Mcgee",
+      "id": "dfaa",
+      "name": "Hyacinth Everett",
       "permissions": [
         "manage_users",
         "edit_content",
-        "delete_content"
+        "view_content",
+        "manage_settings"
       ]
     },
     {
-      "id": 0.5110926364240851,
-      "name": "Carl Gillespie",
+      "id": "3257",
+      "name": "Hilel Lucas",
       "permissions": [
         "manage_settings"
       ]
     },
     {
-      "id": 0.07038596429318789,
-      "name": "Craig Hansen",
+      "id": "d97a",
+      "name": "Bryar Aguirre",
       "permissions": [
         "manage_users",
+        "view_content",
         "manage_settings"
+      ]
+    },
+    {
+      "id": "1413",
+      "name": "Staff",
+      "permissions": []
+    },
+    {
+      "id": "c45b",
+      "name": "Blythe Alvarez",
+      "permissions": [
+        "edit_content",
+        "view_content",
+        "manage_settings",
+        "delete_content"
       ]
     }
   ],

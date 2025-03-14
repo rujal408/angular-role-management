@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   computed,
   EventEmitter,
   inject,
   Output,
-  signal,
-  Signal,
 } from '@angular/core';
 import { RoleService } from '../../services/role.service';
 import { RoleFormComponent } from '../role-form/role-form.component';
@@ -16,6 +15,7 @@ import { RoleFormComponent } from '../role-form/role-form.component';
   templateUrl: './role-list.component.html',
   styleUrls: ['./role-list.component.scss'],
   imports: [CommonModule, RoleFormComponent],
+  providers: [HttpClient],
 })
 export class RoleListComponent {
   @Output() edit = new EventEmitter<number>();
@@ -23,15 +23,18 @@ export class RoleListComponent {
 
   private readonly rolesService = inject(RoleService);
 
-  public roles: Signal<any[]> = signal([]);
+  // Declare as a computed signal
+  public roles = computed(() => {
+    const resources = this.rolesService.getRoles();
+    return resources || [];
+  });
 
   constructor() {
-    this.getData();
+    this.loadData();
   }
 
-  getData() {
-    const resources = this.rolesService.getRoles;
-    this.roles = computed(() => resources.value() || []);
+  loadData() {
+    this.rolesService.getRoles(); // Assume this fetches and updates the service's signal
   }
 
   onEdit(id: number) {
@@ -43,12 +46,8 @@ export class RoleListComponent {
   }
 
   async addRole(newRoleData: { name: string; permissions: string[] }) {
-    const newId = Math.random();
-
-    await this.rolesService
-      .postRole({ ...newRoleData, id: newId })
-      .then((res) => {
-        console.log({ res });
-      });
+    await this.rolesService.postRole(newRoleData);
+    this.loadData();
+    // No need to update local signal; service updates its state, triggering computed
   }
 }
